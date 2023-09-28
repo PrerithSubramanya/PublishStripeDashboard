@@ -3,7 +3,7 @@ import requests
 
 import json
 
-st.title("Stripe API Terminal Locations")
+st.title("Publish Stripe to Terminal Locations")
 
 # Using the secrets in the app
 api_key = st.secrets["api_key"]
@@ -29,7 +29,8 @@ if st.button("Publish APP"):
     )
 
     if response.status_code == 200:
-        st.write("Successfully published an App")
+        st.success("Successfully fetched location details!")
+        st.write(response.json())
     else:
-        st.write(f"Error: {response.status_code}")
+        st.error(f"Error: {response.status_code}")
         st.write(response.text)
