@@ -29,7 +29,7 @@ if st.button("Publish APP"):
     )
 
     if response.status_code == 200:
-        st.success("Successfully fetched location details!")
+        st.success("Successfully published!")
         st.write(response.json())
     else:
         st.error(f"Error: {response.status_code}")
