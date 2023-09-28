@@ -14,7 +14,7 @@ device_group_value = st.secrets["device_group_value"]
 location_id = st.text_input("Enter the terminal location ID:")
 
 # Button to trigger the API call
-if st.button("Fetch Location Details"):
+if st.button("Publish APP"):
     headers = {
         "Authorization": f"Bearer {api_key}",
         "Stripe-Version": "2020-08-27; terminal_deploy_api_beta=v1"
@@ -29,7 +29,7 @@ if st.button("Fetch Location Details"):
     )
 
     if response.status_code == 200:
-        st.write(response.json())
+        st.write("Successfully published an App")
     else:
         st.write(f"Error: {response.status_code}")
         st.write(response.text)
